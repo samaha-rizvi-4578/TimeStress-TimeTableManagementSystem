@@ -1,26 +1,31 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
+from django.core.mail import send_mail
+from django.conf import settings
+from django.contrib.auth.decorators import login_required
+from .forms import *
+from .models import *
+from django.db.models import Prefetch
+from django.http import HttpResponseRedirect
+import random as rnd
 
-# Models
-from .models import Room, Instructor, Course, Department, Section
 
 # Views
 
-def home(request):
-    return render(request, 'home.html')
+def index(request):
+    return render(request, 'index.html', {})
+
 
 def about(request):
-    return render(request, 'about.html')
+    return render(request, 'aboutus.html', {})
+
 
 def contact(request):
-    return render(request, 'contact.html')
+    return render(request, 'contact.html', {})
 
-def login(request):
-    return render(request, 'login.html')
 
-def terms_and_conditions(request):
-    return render(request, 'terms.html')
-
+def terms(request):
+    return render(request, 'terms.html', {})
 # Admin Views
 
 def admin_dashboard(request):
@@ -51,12 +56,33 @@ def admin_generate_timetable(request):
     # Logic for generating timetable using genetic algorithm and constraints
     return HttpResponse("Timetable generated successfully.")
 
+def admin_edit_section(request, section_id):
+    section = get_object_or_404(Section, pk=section_id)
+    if request.method == 'POST':
+        form = EditForm(request.POST, instance=section)
+        if form.is_valid():
+            form.save()
+            return redirect('admin_sections')
+    else:
+        form = EditForm(instance=section)
+    return render(request, 'admin/edit_section.html', {'form': form})
+
+def admin_delete_section(request, section_id):
+    section = get_object_or_404(Section, pk=section_id)
+    if request.method == 'POST':
+        form = DeleteForm(request.POST)
+        if form.is_valid() and form.cleaned_data['confirm']:
+            section.delete()
+            return redirect('admin_sections')
+    else:
+        form = DeleteForm()
+    return render(request, 'admin/delete_section.html', {'form': form, 'section': section})
+
 # User Views
 
 def user_timetable(request):
     # Logic for displaying user's timetable
     return render(request, 'timetable.html')
-
 
 # Timetable Generation Views
 

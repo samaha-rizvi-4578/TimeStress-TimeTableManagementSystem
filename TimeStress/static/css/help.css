@@ -1,0 +1,48 @@
+body {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    color: #B9D9EB;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    background-color: #073980;
+}
+
+nav {
+    font-family: sans-serif;
+    background-color: #073980;
+}
+
+.navbar-brand {
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #B9D9EB;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.container {
+    max-width: 960px;
+    background-color: #B9D9EB;
+}
+
+.pricing-header {
+    max-width: 700px;
+    color: #073980;
+}
+
+.card-deck .card {
+    min-width: 220px;
+    background-color: #B9D9EB;
+    color: #073980;
+}
+
+.themed-container {
+    padding: 15px;
+    margin-bottom: 30px;
+    background-color: #073980;
+    border: 1px solid #B9D9EB;
+}

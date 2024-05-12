@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Time-Stress | About Us</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+  <link rel="stylesheet" type="text/css" href="static/css/aboutus.css">
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/carousel/">
+
+  <style>
+    body {
+      padding-top: 3.5rem;
+      background-color: #B9D9EB;
+    }
+
+    nav {
+      font-family: sans-serif;
+      background-color: #002147;
+    }
+
+    .navbar-brand {
+      font-size: 20px;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      color: #B9D9EB;
+    }
+
+    .navbar-nav .nav-link {
+    color: #B9D9EB;
+    transition: color 0.3s ease-in-out; /* Adding transition for smooth effect */
+}
+
+ .navbar-nav .nav-link:hover,
+ .navbar-nav .nav-link:focus {
+    color: #fff;
+    text-decoration: none; /* Remove underline on hover */
+}
+
+
+
+   
+
+    .jumbotron {
+      align-items: center;
+      align-content: center;
+      background-color: #B9D9EB;
+      color: #002147;
+    }
+
+    .btn {
+      border: #073980 2px solid;
+      background-color: #B9D9EB;
+      color: #073980;
+    }
+
+    
+        .btn:hover {
+          font-size: larger;
+          background-color: #073980;
+          color: #B9D9EB;
+        }
+  
+
+    .container {
+      border: #073980 2px solid;
+      border-radius: 30px;
+      align-items: center;
+      padding: 20px;
+    }
+
+    footer {
+      margin-top: 150px;
+      /* background-color: #073980; */
+      color: #002147;
+      align-items: center;
+      text-align: center;
+    }
+
+    a {
+      color: #B9D9EB;
+      font-size: 20px;
+    }
+
+
+    a:hover {
+      color: #B9D9EB;
+      text-decoration: underline;
+    }
+  </style>
+
+</head>
+
+<body style="background-color: #B9D9EB;">
+  <form id="form1">
+    <header>
+      <!--Navigation Bar-->
+      <nav class="navbar navbar-expand-md fixed-top">
+        <a class="navbar-brand" href="#"><b>TIME-STRESS</b></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+          aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'index' %}">Home</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'about' %}">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'help' %}">Help</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'login' %}">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'register' %}">Sign Up</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main role="main">
+
+      <div class="jumbotron">
+        <div class="container">
+          <h1 class="display-4">About Time-Stress</h1>
+          <p>Step into the fast lane with Time-Stress, the ultimate solution for timetable generation, crafted by the
+            dynamic minds at Stressed FASTIANS. Welcome to Time-Stress, where efficiency meets innovation, transforming
+            the chaos of scheduling into a streamlined masterpiece.
+          </p>
+          <p><a class="btn btn-lg" href="{% url 'contact' %}" role="button">Contact Us</a></p>
+        </div>
+      </div>
+
+    </main>
+
+    <footer>
+      <p>&copy; <a href="https://github.com/samaha-rizvi-4578/TimeTableManagementSystem"
+          style="color: #002147;">Time-Stress. k214578 . k213377 . k213287</a></p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
+    <script src="../assets/dist/js/bootstrap.bundle.js"></script>
+
+  </form>
+</body>
+
+</html>
