@@ -67,6 +67,16 @@ def admin_edit_section(request, section_id):
         form = EditForm(instance=section)
     return render(request, 'admin/edit_section.html', {'form': form})
 
+def admin_add_room(request):
+    if request.method == 'POST':
+        form = RoomForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('admin_rooms')
+    else:
+        form = RoomForm()
+    return render(request, 'admin/add_room.html', {'form': form})
+
 def admin_delete_section(request, section_id):
     section = get_object_or_404(Section, pk=section_id)
     if request.method == 'POST':
