@@ -94,4 +94,16 @@ def download_timetable(request):
     # Logic for downloading timetable as PDF or Excel
     return HttpResponse("Timetable downloaded successfully.")
 
+from accounts.models import Profile  # Import the Profile model
+
+def admindash(request):
+    # Retrieve the logged-in user's profile
+    profile = Profile.objects.get(user=request.user)
+    
+    # Check if the user type is 'admin' and render the corresponding template
+    if profile.user_type == 'admin':
+        return render(request, 'admin/dashboard.html')
+    else:
+        return render(request, 'timetable.html')
+
 # Add more views for uploading CSV, editing/deleting model instances, etc.
