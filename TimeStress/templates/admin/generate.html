@@ -1,0 +1,385 @@
+{% load static %}
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Time-Stress | Generate Timetable</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/carousel/">
+    <script src="render.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+    <script type="text/javascript" language="JavaScript">
+    window.onload = function () {
+    document.getElementById("download")
+        .addEventListener("click", () => {
+            const invoice = this.document.getElementById("timetable");
+            console.log(invoice);
+            console.log(window);
+            var opt = {
+                margin: 1,
+                filename: 'Timetable.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'landscape' }
+            };
+            html2pdf().from(invoice).set(opt).save();
+        })
+}</script>
+    <style>
+
+      *{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+
+}
+
+html{
+	scroll-behavior: smooth;
+}
+
+a{
+	text-decoration:none;
+}
+
+h1, h2, h3, h4, h5{
+    text-align: center;
+    font-family: times new roman;
+}
+
+button
+{
+	border-style:none;
+}
+.main
+{
+	max-width: 1200px;
+	height: auto;
+	margin:0 auto;
+}
+
+form {
+	margin-top: 3%;
+	margin-left: 18%;
+	margin-right: 12%;
+}
+
+form fieldset{
+	padding: 50px;
+	border-width: 25px;
+	border-style: ridge;
+	border-color: #073980;
+	box-shadow: 6px 13px 13px 0px black;
+	background-color: #fff;
+
+}
+
+.secHead{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-left: 120px;
+	color:#3e4242;
+	font-size: 1.8rem;
+}
+
+.table2{
+    margin-bottom: 100px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.table2 {
+
+  border: 25px ridge;
+  border-color: #002147;
+  box-shadow: 6px 13px 13px 0px black;
+  background-color: #fff;
+  letter-spacing: 1px;
+  font-size: 1.0rem;
+}
+
+.table2 td, th {
+  border: 1px solid rgb(190,190,190);
+  padding: 10px 20px;
+
+}
+
+.table2 th{
+	color: #002147;
+	font-weight: bolder;
+}
+
+.table2 td {
+  text-align: center;
+}
+
+.table1{
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  overflow: hidden;
+}
+
+.table1 td, th{
+    border-top: 1px solid #002147;
+    padding: 10px;
+  }
+
+
+.table1 th{
+    background-color: #002147;
+    color: #fff;
+  }
+
+.submit{
+	margin-left: auto;
+	color: #fff;
+	background-color: #002147;
+	border-radius: 3px;
+	padding: 13px 39px;
+	text-align: center;
+	letter-spacing: 0.9px;
+	text-decoration: none;
+	margin-right: auto;
+	line-height: 26px;
+	font-size: 16px;
+	align-content: center;
+}
+
+.submit {
+      align-self: center;
+			background-color: #002147;
+			
+			color: #B9D9EB;
+		}
+
+		.submit:hover {
+			background-color: #B9D9EB;
+			border: #073980 solid 2px;
+			color: #073980;
+		}
+
+		* {
+			margin: 0;
+			padding: 0;
+
+		}
+
+		html {
+			scroll-behavior: smooth;
+		}
+
+		a {
+			text-decoration: none;
+		}
+
+		button {
+			border-style: none;
+		}
+
+		h1,
+		h2,
+		h3,
+		h4,
+		h5 {
+			text-align: center;
+			color: #002147;
+
+		}
+
+		form {
+			margin-top: 2%;
+			margin-left: 18%;
+			margin-right: 21%;
+
+		}
+
+		form fieldset {
+			padding: 40px;
+			border-width: 20px;
+			border-style: groove;
+			border-color: hsl(212, 90%, 8%);
+			background-color: #B9D9EB;
+		}
+
+		fieldset h1 {
+			color: #002147;
+			padding-bottom: 20px;
+			margin-left: 35px;
+			display: inline-block;
+			cursor: pointer;
+			font-size: 28px;
+			text-align: center;
+		}
+
+		fieldset label {
+			margin-left: 40px;
+			padding: 23px;
+			font-size: 20px;
+			display: inline-block;
+			width: 240px;
+			color: #002147;
+		}
+
+		fieldset input {
+			padding: 8px;
+			color: #002147
+		}
+
+		fieldset input:focus {
+			color: #002147;
+		}
+
+		fieldset button {
+			margin-left: 60px;
+			color: #fff;
+background-color: #002147;
+			border-radius: 3px;
+			padding: 13px 39px;
+			text-align: center;
+			letter-spacing: 0.9px;
+			text-decoration: none;
+			margin-right: 10px;
+			line-height: 26px;
+			font-size: 16px;
+			box-shadow: 0px 1px 3px 0px #5a5a5a;
+			right: 100px;
+			margin-top: 15px;
+		}
+
+		.dropdown-check-list {
+			display: inline-block;
+		}
+
+		.dropdown-check-list .anchor {
+			position: relative;
+			cursor: pointer;
+			display: inline-block;
+			padding: 5px 50px 5px 10px;
+			border: 1px solid #ccc;
+		}
+
+		.dropdown-check-list .anchor:after {
+			position: absolute;
+			content: "";
+			border-left: 2px solid black;
+			border-top: 2px solid black;
+			padding: 5px;
+			right: 10px;
+			top: 20%;
+			-moz-transform: rotate(-135deg);
+			-ms-transform: rotate(-135deg);
+			-o-transform: rotate(-135deg);
+			-webkit-transform: rotate(-135deg);
+			transform: rotate(-135deg);
+		}
+
+		.dropdown-check-list .anchor:active:after {
+			right: 8px;
+			top: 21%;
+		}
+
+		.dropdown-check-list ul.items {
+			padding: 2px;
+			display: none;
+			margin: 0;
+			border: 1px solid #ccc;
+			border-top: none;
+		}
+
+		.dropdown-check-list ul.items li {
+			list-style: none;
+		}
+
+		.submit {
+			margin-left: 60px;
+			color: #B9D9EB;
+			background-color: #002147;
+			border-radius: 3px;
+			padding: 13px 39px;
+			text-align: center;
+			letter-spacing: 0.9px;
+			text-decoration: none;
+			margin-right: 10px;
+			line-height: 26px;
+			font-size: 16px;
+			box-shadow: 0px 1px 3px 0px #5a5a5a;
+			right: 100px;
+			margin-top: 15px;
+		}
+    .down {
+      padding: 10px;
+    }
+    </style>
+
+</head>
+<body>
+<script type="text/javascript">
+        var checkList = document.getElementById('list1');
+        var items = document.getElementById('items');
+        checkList.getElementsByClassName('anchor')[0].onclick = function (evt) {
+            if (items.classList.contains('visible')){
+                items.classList.remove('visible');
+                items.style.display = "none";
+            }
+
+            else{
+                items.classList.add('visible');
+                items.style.display = "block";
+            }
+        }
+
+        items.onblur = function(evt) {
+            items.classList.remove('visible');
+        }
+
+    </script>
+        <br><br>
+        <div id="timetable">
+        <h1>Time-Stress | Generated Timetable</h1><br>
+        {% block content %}
+        {% load static %}
+        {% for section in sections %}
+        <h2 class="secHead" style="text-align: center; color: #002147;">{{ section.section_id }} ({{ section.department }})</h2>
+    <table class="table2">
+      <colgroup>
+        <col>
+        <col>
+        <col>
+        <col>
+        <col>
+        <col>
+      </colgroup>
+      <tr>
+        <th>Class</th>
+        <th>Course</th>
+        <th>Venue</th>
+        <th>Instructor</th>
+        <th>Class Timing</th>
+      </tr>
+      {% for class in schedule %}
+        {% if class.section == section.section_id %}
+        <tr>
+          <th>{{class.section_id}}</th>
+          <td>{{class.course}}</td>
+          <td>{{class.room}}</td>
+          <td>{{class.instructor}}</td>
+          <td>{{class.meeting_time}}</td>
+        </tr>
+        {% endif %}
+      {% endfor %}
+    </table>
+
+{% endfor %}
+{% endblock %}
+
+        </div>
+        <div class="down" style="display: flex; justify-content: center;">
+          <button class="submit" id="download">Download</button>
+      </div>
+</body>
+</html>
