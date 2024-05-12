@@ -37,6 +37,7 @@ urlpatterns = [
     
     # generate timetable
     path('admin/generate_timetable/', views.admin_generate_timetable, name='admin_generate_timetable'),
+    #view timetable
     path('timetable/', views.user_timetable, name='timetable'),
     
 ]
