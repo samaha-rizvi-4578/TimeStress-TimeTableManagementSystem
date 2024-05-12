@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Time-Stress | Dashboard</title>
+	<title>Time-Stress | Teachers</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
@@ -249,8 +249,9 @@ background-color: #002147;
                       <li class="nav-item">
                         <a class="nav-link" href="{% url 'admin_add_section' %}">Add Sections</a>
                       </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="{% url 'admin_generate_timetable'i>
+					  <li class="nav-item">
+						<a class="nav-link" href="{% url 'admin_generate_timetable' %}">Generate TimeTable</a>
+						</li>
                       <li class="nav-item active">
                         <a class="nav-link">|</a>
                       </li>
@@ -280,7 +281,7 @@ background-color: #002147;
 		<div class="tabcontent" id="new">
 			{{ form.as_p }}
             <br>
-            <a href="{% url 'editinstructor' %}"><input value="View / Edit Teachers" class="submit"></a>&nbsp;<input type="submit" value="Add Teacher" class="submit">
+            <a href="{% url 'admin_instructors' %}"><input value="View / Edit Teachers" class="submit"></a>&nbsp;<input type="submit" value="Add Teacher" class="submit">
 		</div>
 	</fieldset>
 </form>
