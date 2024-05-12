@@ -26,9 +26,9 @@ def terms(request):
 def admindash(request):
     # Logic for admin dashboard
     if request.user.profile.user_type == 'admin':
-        return redirect('admin_dashboard')
+        return admin_dashboard(request)
     else:
-        return redirect('user_timetable')
+        return user_timetable(request)
         
 #admin views
 @login_required
