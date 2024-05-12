@@ -121,24 +121,23 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'addInstructor' %}">Add Teachers</a>
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url 'admin_add_room' %}">Add Rooms</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'admin_add_instructor' %}">Add Teachers</a>
+                </li>
+                <li class="nav-item">
+              <a class="nav-link" href="{% url 'admin_add_course' %}">Add Courses</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'addRoom' %}">Add Rooms</a>
+              <a class="nav-link" href="{% url 'admin_add_department' %}">Add Departments</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'addCourse' %}">Add Courses</a>
+              <a class="nav-link" href="{% url 'admin_add_section' %}">Add Sections</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'addDept' %}">Add Departments</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'addSections' %}">Add Sections</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'generate' %}">Generate Timetable</a>
-            </li>
+              <a class="nav-link" href="{% url 'admin_generate_timetable'i>
             <li class="nav-item active">
               <a class="nav-link">|</a>
             </li>
@@ -168,7 +167,6 @@
             dynamic minds at Stressed FASTIANS. Welcome to Time-Stress, where efficiency meets innovation, transforming
             the chaos of scheduling into a streamlined masterpiece.
           </p>
-          <!-- <p><a class="btn btn-primary btn-lg" href="{% url 'addInstructor' %}" role="button"> -->
               &raquo;</a>&nbsp;&nbsp;&nbsp;<a class="btn btn-primary btn-lg" href="{% url 'contact' %}"
               role="button">Contact Us &raquo;</a></p>
         </div>
