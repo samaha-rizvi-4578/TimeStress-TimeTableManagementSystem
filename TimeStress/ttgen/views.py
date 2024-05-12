@@ -46,7 +46,7 @@ def admin_rooms(request):
     rooms = Room.objects.all()
     return render(request, 'admin/rooms.html', {'rooms': rooms})
 
-@login_required
+
 def admin_instructors(request):
     instructors = Instructor.objects.all()
     return render(request, 'admin/instructors.html', {'instructors': instructors})
