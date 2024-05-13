@@ -66,7 +66,7 @@ class EditSection(forms.ModelForm):
         fields = '__all__'
 
     def __init__(self, *args, **kwargs):
-        super(EditForm, self).__init__(*args, **kwargs)
+        super(EditSection, self).__init__(*args, **kwargs)
         for field_name in self.fields.keys():
             self.fields[field_name].widget.attrs.update({'class': 'form-control'})
 
@@ -76,7 +76,7 @@ class EditCourse(forms.ModelForm):
         fields = '__all__'
 
     def __init__(self, *args, **kwargs):
-        super(EditForm, self).__init__(*args, **kwargs)
+        super(EditCourse, self).__init__(*args, **kwargs)
         for field_name in self.fields.keys():
             self.fields[field_name].widget.attrs.update({'class': 'form-control'})
             
@@ -86,7 +86,7 @@ class EditDepartment(forms.ModelForm):
         fields = '__all__'
 
     def __init__(self, *args, **kwargs):
-        super(EditForm, self).__init__(*args, **kwargs)
+        super(EditDepartment, self).__init__(*args, **kwargs)
         for field_name in self.fields.keys():
             self.fields[field_name].widget.attrs.update({'class': 'form-control'})
             
@@ -96,7 +96,7 @@ class EditInstructor(forms.ModelForm):
         fields = '__all__'
 
     def __init__(self, *args, **kwargs):
-        super(EditForm, self).__init__(*args, **kwargs)
+        super(EditInstructor, self).__init__(*args, **kwargs)
         for field_name in self.fields.keys():
             self.fields[field_name].widget.attrs.update({'class': 'form-control'})
 
@@ -106,7 +106,7 @@ class EditRoom(forms.ModelForm):
         fields = '__all__'
 
     def __init__(self, *args, **kwargs):
-        super(EditForm, self).__init__(*args, **kwargs)
+        super(EditRoom, self).__init__(*args, **kwargs)
         for field_name in self.fields.keys():
             self.fields[field_name].widget.attrs.update({'class': 'form-control'})
             
