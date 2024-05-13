@@ -661,11 +661,11 @@
             <td>{{inst.name}}</td>
             <td>{{inst.cnic}}</td>
             <td class="empty">
-              <form action="{% url 'admin_edit_instructor' inst.id_number %}" method="post">
+              <form action="{% url 'admin_edit_instructor' inst.id %}" method="post">
                 {% csrf_token %}
                 <input type="submit" value="Edit" class="cross">
               </form>
-              <form action="{% url 'admin_delete_instructor' inst.id_number %}" method="post">
+              <form action="{% url 'admin_delete_instructor' inst.id %}" method="post">
                 {% csrf_token %}
                 <input type="submit" value="Delete" class="cross">
               </form>

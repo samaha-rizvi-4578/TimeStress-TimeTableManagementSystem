@@ -662,11 +662,11 @@
             <td>{{s.department}}</td>
             <td>{{s.course}}</td>
             <td class="empty">
-              <form action="{% url 'admin_edit_section' c.id %}" method="post">
+              <form action="{% url 'admin_edit_section' s.id %}" method="post">
                 {% csrf_token %}
                 <input type="submit" value="Edit" class="cross">
               </form>
-              <form action="{% url 'admin_delete_section' inst.id_number %}" method="post">
+              <form action="{% url 'admin_delete_section' s.id %}" method="post">
                 {% csrf_token %}
                 <input type="submit" value="Delete" class="cross">
               </form>

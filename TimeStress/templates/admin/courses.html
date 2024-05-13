@@ -659,15 +659,18 @@
         <tbody>
           {% for c in courses %}
           <tr>
-            <td>{{c.}}</td>
-            <td>{{inst.name}}</td>
-            <td>{{inst.cnic}}</td>
+            <td>{{c.course_number}}</td>
+            <td>{{c.ocurse_name}}</td>
+            <td>{{c.max_students}}</td>
+            <td>{{c.classes_per_week}}</td>
+            <td>{{c.class_duration}}</td>
+            <td>{{c.instructors}}</td>
             <td class="empty">
               <form action="{% url 'admin_edit_course' c.id %}" method="post">
                 {% csrf_token %}
                 <input type="submit" value="Edit" class="cross">
               </form>
-              <form action="{% url 'admin_delete_course' inst.id_number %}" method="post">
+              <form action="{% url 'admin_delete_course' c.id %}" method="post">
                 {% csrf_token %}
                 <input type="submit" value="Delete" class="cross">
               </form>

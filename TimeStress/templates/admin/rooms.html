@@ -658,11 +658,11 @@
             <td>{{r.room_number}}</td>
             <td>{{r.seating_capacity}}</td>
             <td class="empty">
-              <form action="{% url 'admin_edit_room' c.id %}" method="post">
+              <form action="{% url 'admin_edit_room' r.id %}" method="post">
                 {% csrf_token %}
                 <input type="submit" value="Edit" class="cross">
               </form>
-              <form action="{% url 'admin_delete_room' inst.id_number %}" method="post">
+              <form action="{% url 'admin_delete_room' r.id %}" method="post">
                 {% csrf_token %}
                 <input type="submit" value="Delete" class="cross">
               </form>

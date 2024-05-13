@@ -655,15 +655,14 @@
         <tbody>
           {% for d in departments %}
           <tr>
-            <td>{{c.}}</td>
-            <td>{{inst.name}}</td>
-            <td>{{inst.cnic}}</td>
+            <td>{{d.name}}</td>
+            <td>{{d.courses}}</td>
             <td class="empty">
-              <form action="{% url 'admin_edit_department' c.id %}" method="post">
+              <form action="{% url 'admin_edit_department' d.id %}" method="post">
                 {% csrf_token %}
                 <input type="submit" value="Edit" class="cross">
               </form>
-              <form action="{% url 'admin_delete_department' inst.id_number %}" method="post">
+              <form action="{% url 'admin_delete_department' d.id %}" method="post">
                 {% csrf_token %}
                 <input type="submit" value="Delete" class="cross">
               </form>
