@@ -653,28 +653,30 @@
           </tr>
         </thead>
         <tbody>
-          {% for r in rooms %}
-          <tr>
-            <td>{{r.room_number}}</td>
-            <td>{{r.seating_capacity}}</td>
-            <td class="empty">
-              <form action="{% url 'admin_edit_room' r.id %}" method="post">
-                {% csrf_token %}
-                <input type="submit" value="Edit" class="cross">
-              </form>
-              <form action="{% url 'admin_delete_room' r.id %}" method="post">
-                {% csrf_token %}
-                <input type="submit" value="Delete" class="cross">
-              </form>
-            </td>
-          </tr>
-          {% endfor %}
+            {% for r in rooms %}
+            <tr>
+              <td>{{ r.room_number }}</td>
+              <td>{{ r.seating_capacity }}</td>
+              <td class="empty">
+                <form action="{% url 'admin_edit_room' r.id %}" method="post">
+                  {% csrf_token %}
+                  <input type="submit" value="Edit" class="cross">
+                </form>
+                <form action="{% url 'admin_delete_room' r.id %}" method="post">
+                  {% csrf_token %}
+                  <input type="submit" value="Delete" class="cross">
+                </form>
+              </td>
+            </tr>
+            {% endfor %}
+            
         </tbody>
 
       </table>
-      <a href="{% url 'admin_add_room'%}">
-        <h1 class="tablink" onclick="openPage('new')" id="defaultOpen">Back to Add Rooms</h1>
+      <a href="{% url 'admin_add_room' %}">
+        <h1 class="tablink">Back to Add Rooms</h1>
       </a>
+      
     </div>
   </fieldset>
 
