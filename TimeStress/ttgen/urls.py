@@ -29,11 +29,11 @@ urlpatterns = [
     path('admins/edit_department/<int:department_id>/', views.admin_edit_department, name='admin_edit_department'),
     path('admins/edit_section/<int:section_id>/', views.admin_edit_section, name='admin_edit_section'),
     # delete lists
-    path('admins/delete_room/<int:room_id>/', views.admin_delete_room, name='admin_delete_room'),
-    path('admins/delete_instructor/<int:instructor_id>/', views.admin_delete_instructor, name='admin_delete_instructor'),
+    path('admins/delete_room/<str:room_id>/', views.admin_delete_room, name='admin_delete_room'),
+    path('admins/delete_instructor/<str:instructor_id>/', views.admin_delete_instructor, name='admin_delete_instructor'),
     path('admins/delete_course/<str:course_id>/', views.admin_delete_course, name='admin_delete_course'),
-    path('admins/delete_department/<int:department_id>/', views.admin_delete_department, name='admin_delete_department'),
-    path('admins/delete_section/<int:section_id>/', views.admin_delete_section, name='admin_delete_section'),
+    path('admins/delete_department/<str:department_id>/', views.admin_delete_department, name='admin_delete_department'),
+    path('admins/delete_section/<str:section_id>/', views.admin_delete_section, name='admin_delete_section'),
     
     # generate timetable
     path('admins/generate_timetable/', views.admin_generate_timetable, name='admin_generate_timetable'),
