@@ -180,14 +180,17 @@ def admin_add_department(request):
 
 @login_required
 def admin_add_section(request):
+    form = SectionForm(request.POST or None)
     if request.method == 'POST':
-        form = SectionForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('admin_sections')
-    else:
-        form = SectionForm()
-    return render(request, 'admin/add_section.html', {'form': form})
+        else:
+            print('invalid')
+    context = {
+        'form': form
+        }
+    return render(request, 'admin/add_section.html', context)
 
 ##########################################
 # delete views
@@ -238,9 +241,127 @@ def admin_generate_timetable(request):
 ########################################
 #generate timetable fucntion
 ########################################
+from django.http import HttpResponse
+from django.shortcuts import render
+import random
+
+# Constants for demonstration
+MAX_CLASSES_PER_DAY = 4
+MAX_CONSECUTIVE_CLASSES = 2
+MAX_CLASHES = 0
+
+# Function to initialize a population of timetables
+def initialize_population(population_size):
+    population = []
+    for _ in range(population_size):
+        timetable = generate_random_timetable()  # Generate a random timetable
+        population.append(timetable)
+    return population
+
+# Function to generate a random timetable
+def generate_random_timetable():
+    # Logic to generate a random timetable for demonstration
+    timetable = []
+    for day in range(5):  # Assuming 5 working days
+        daily_classes = random.randint(0, MAX_CLASSES_PER_DAY)
+        timetable.append(daily_classes)
+    return timetable
+
+# Fitness function to evaluate the quality of a timetable
+def fitness_function(timetable):
+    # Calculate fitness score based on constraints
+    fitness_score = 0
+    for day_classes in timetable:
+        if day_classes > MAX_CLASSES_PER_DAY:
+            fitness_score -= 1
+        if day_classes >= MAX_CONSECUTIVE_CLASSES:
+            fitness_score -= 1
+    return fitness_score
+
+# Function to select fittest individuals from the population
+def selection(population, fitness_scores):
+    # Select individuals with higher fitness scores
+    selected_population = []
+    for i in range(len(population)):
+        if fitness_scores[i] > 0:  # Considering positive fitness scores
+            selected_population.append(population[i])
+    return selected_population
+
+# Function to create offspring through crossover
+def crossover(selected_population):
+    # Perform crossover (not implemented for demonstration)
+    return selected_population
+
+# Function to introduce random changes in the offspring
+def mutation(offspring_population, mutation_rate):
+    # Perform mutation (not implemented for demonstration)
+    return offspring_population
+
+# Function to check if the optimal solution is found
+def optimal_solution_found(population):
+    # Check if any timetable satisfies constraints (not implemented for demonstration)
+    return False
+
+# Function to select the best timetable from the final population
+def select_best_timetable(population):
+    # Select the timetable with the highest fitness score (not implemented for demonstration)
+    return population[0]
+
+# Function to validate if the generated timetable satisfies all constraints
+def validate_timetable(timetable):
+    # Check if timetable satisfies constraints (not implemented for demonstration)
+    return True
+
+# Function to save the timetable to the database or render it in a template
+def save_timetable(timetable):
+    # Save timetable to the database or render it in a template (not implemented for demonstration)
+    pass
+
+# Main function to generate timetable using genetic algorithm
 def generate_timetable(request):
-    # Logic for generating timetable using genetic algorithm and constraints
-    return HttpResponse("Timetable generated successfully.")
+    # Initialize parameters
+    population_size = 100
+    mutation_rate = 0.1
+    max_generations = 1000
+    current_generation = 0
+
+    # Initialize population
+    population = initialize_population(population_size)
+
+    while current_generation < max_generations:
+        # Evaluate fitness of each timetable
+        fitness_scores = [fitness_function(timetable) for timetable in population]
+
+        # Select fittest individuals
+        selected_population = selection(population, fitness_scores)
+
+        # Create offspring through crossover
+        offspring_population = crossover(selected_population)
+
+        # Mutate offspring
+        mutated_offspring = mutation(offspring_population, mutation_rate)
+
+        # Replace old population with new generation
+        population = mutated_offspring
+
+        # Increment generation count
+        current_generation += 1
+
+        # Termination condition: Check if optimal timetable is found
+        if optimal_solution_found(population):
+            break
+
+    # Select best timetable from final population
+    best_timetable = select_best_timetable(population)
+
+    # Validate timetable
+    if validate_timetable(best_timetable):
+        # Save timetable to database or render it in a template
+        save_timetable(best_timetable)
+        return HttpResponse("Timetable generated successfully.")
+    else:
+        return HttpResponse("Timetable generation failed due to constraints violation.")
+
 
 # User Views
 

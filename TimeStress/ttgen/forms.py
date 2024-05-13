@@ -50,14 +50,12 @@ class DepartmentForm(ModelForm):
 class SectionForm(ModelForm):
     class Meta:
         model = Section
-        fields = ['section_id', 'batch_number', 'department', 'course', 'room', 'instructor']
+        fields = ['section_id', 'batch_number', 'department', 'course']
         labels = {
             "section_id": _("Section ID"),
             "batch_number": _("Batch Number"),
             "department": _("Department"),
             "course": _("Course"),
-            "room": _("Room"),
-            "instructor": _("Instructor")
         }
 
 class EditSection(forms.ModelForm):
