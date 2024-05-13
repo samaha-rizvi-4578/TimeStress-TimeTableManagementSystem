@@ -256,6 +256,14 @@ def admin_delete_section(request, section_id):
 ########################################
 @login_required
 def admin_generate_timetable(request):
+    generate_timetable(request)
+    # Logic for generating timetable using genetic algorithm and constraints
+    return render(request, 'admin/generate_timetable.html')
+
+########################################
+#generate timetable fucntion
+########################################
+def generate_timetable(request):
     # Logic for generating timetable using genetic algorithm and constraints
     return HttpResponse("Timetable generated successfully.")
 
