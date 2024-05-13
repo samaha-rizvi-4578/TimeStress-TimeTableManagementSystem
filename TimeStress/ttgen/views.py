@@ -75,7 +75,7 @@ def admin_sections(request):
 def admin_edit_room(request, room_id):
     room = get_object_or_404(Room, pk=room_id)
     if request.method == 'POST':
-        form = EditForm(request.POST, instance=room)
+        form = EditRoom(request.POST, instance=room)
         if form.is_valid():
             form.save()
             return redirect('admin_rooms')
@@ -87,7 +87,7 @@ def admin_edit_room(request, room_id):
 def admin_edit_instructor(request, instructor_id):
     instructor = get_object_or_404(Instructor, pk=instructor_id)
     if request.method == 'POST':
-        form = EditForm(request.POST, instance=instructor)
+        form = EditInstructor(request.POST, instance=instructor)
         if form.is_valid():
             form.save()
             return redirect('admin_instructors')
@@ -99,7 +99,7 @@ def admin_edit_instructor(request, instructor_id):
 def admin_edit_course(request, course_id):
     course = get_object_or_404(Course, pk=course_id)
     if request.method == 'POST':
-        form = EditForm(request.POST, instance=course)
+        form = EditCourse(request.POST, instance=course)
         if form.is_valid():
             form.save()
             return redirect('admin_courses')
@@ -111,7 +111,7 @@ def admin_edit_course(request, course_id):
 def admin_edit_department(request, department_id):
     department = get_object_or_404(Department, pk=department_id)
     if request.method == 'POST':
-        form = EditForm(request.POST, instance=department)
+        form = EditDepartment(request.POST, instance=department)
         if form.is_valid():
             form.save()
             return redirect('admin_departments')
@@ -123,7 +123,7 @@ def admin_edit_department(request, department_id):
 def admin_edit_section(request, section_id):
     section = get_object_or_404(Section, pk=section_id)
     if request.method == 'POST':
-        form = EditForm(request.POST, instance=section)
+        form = EditSection(request.POST, instance=section)
         if form.is_valid():
             form.save()
             return redirect('admin_sections')
@@ -194,63 +194,38 @@ def admin_add_section(request):
 ##########################################
 @login_required
 def admin_delete_room(request, room_id):
-    room = get_object_or_404(Room, pk=room_id)
+    room = Room.objects.filter(pk=room_id)
     if request.method == 'POST':
-        form = DeleteForm(request.POST)
-        if form.is_valid() and form.cleaned_data['confirm']:
-            room.delete()
-            return redirect('admin_rooms')
-    else:
-        form = DeleteForm()
-    return render(request, 'admin/delete_room.html', {'form': form, 'room': room})
+        room.delete()
+        return redirect('admin_rooms')
 
 @login_required
 def admin_delete_instructor(request, instructor_id):
-    instructor = get_object_or_404(Instructor, pk=instructor_id)
+    instructor = Instructor.objects.filter(pk=instructor_id)
     if request.method == 'POST':
-        form = DeleteForm(request.POST)
-        if form.is_valid() and form.cleaned_data['confirm']:
-            instructor.delete()
-            return redirect('admin_instructors')
-    else:
-        form = DeleteForm()
-    return render(request, 'admin/delete_instructor.html', {'form': form, 'instructor': instructor})
-
+        instructor.delete()
+        return redirect('admin_instructors')
+    
 @login_required
 def admin_delete_course(request, course_id):
-    course = get_object_or_404(Course, pk=course_id)
+    course = Course.objects.filter(pk=course_id)
     if request.method == 'POST':
-        form = DeleteForm(request.POST)
-        if form.is_valid() and form.cleaned_data['confirm']:
-            course.delete()
-            return redirect('admin_courses')
-    else:
-        form = DeleteForm()
-    return render(request, 'admin/delete_course.html', {'form': form, 'course': course})
+        course.delete()
+        return redirect('admin_courses')
 
 @login_required
 def admin_delete_department(request, department_id):
-    department = get_object_or_404(Department, pk=department_id)
+    department = Department.objects.filter(pk=department_id)
     if request.method == 'POST':
-        form = DeleteForm(request.POST)
-        if form.is_valid() and form.cleaned_data['confirm']:
-            department.delete()
-            return redirect('admin_departments')
-    else:
-        form = DeleteForm()
-    return render(request, 'admin/delete_department.html', {'form': form, 'department': department})
+        department.delete()
+        return redirect('admin_departments')
 
 @login_required
 def admin_delete_section(request, section_id):
-    section = get_object_or_404(Section, pk=section_id)
+    section = Section.objects.filter(pk=section_id)
     if request.method == 'POST':
-        form = DeleteForm(request.POST)
-        if form.is_valid() and form.cleaned_data['confirm']:
-            section.delete()
-            return redirect('admin_sections')
-    else:
-        form = DeleteForm()
-    return render(request, 'admin/delete_section.html', {'form': form, 'section': section})
+        section.delete()
+        return redirect('admin_sections')
 ########################################
 # generate timetable
 ########################################

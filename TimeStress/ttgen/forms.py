@@ -60,7 +60,7 @@ class SectionForm(ModelForm):
             "instructor": _("Instructor")
         }
 
-class EditForm(forms.ModelForm):
+class EditSection(forms.ModelForm):
     class Meta:
         model = Section
         fields = '__all__'
@@ -70,5 +70,43 @@ class EditForm(forms.ModelForm):
         for field_name in self.fields.keys():
             self.fields[field_name].widget.attrs.update({'class': 'form-control'})
 
-class DeleteForm(forms.Form):
-    confirm = forms.BooleanField(required=True, label=_('Confirm Deletion'))
+class EditCourse(forms.ModelForm):
+    class Meta:
+        model = Course
+        fields = '__all__'
+
+    def __init__(self, *args, **kwargs):
+        super(EditForm, self).__init__(*args, **kwargs)
+        for field_name in self.fields.keys():
+            self.fields[field_name].widget.attrs.update({'class': 'form-control'})
+            
+class EditDepartment(forms.ModelForm):
+    class Meta:
+        model = Department
+        fields = '__all__'
+
+    def __init__(self, *args, **kwargs):
+        super(EditForm, self).__init__(*args, **kwargs)
+        for field_name in self.fields.keys():
+            self.fields[field_name].widget.attrs.update({'class': 'form-control'})
+            
+class EditInstructor(forms.ModelForm):
+    class Meta:
+        model = Instructor
+        fields = '__all__'
+
+    def __init__(self, *args, **kwargs):
+        super(EditForm, self).__init__(*args, **kwargs)
+        for field_name in self.fields.keys():
+            self.fields[field_name].widget.attrs.update({'class': 'form-control'})
+
+class EditRoom(forms.ModelForm):
+    class Meta:
+        model = Room
+        fields = '__all__'
+
+    def __init__(self, *args, **kwargs):
+        super(EditForm, self).__init__(*args, **kwargs)
+        for field_name in self.fields.keys():
+            self.fields[field_name].widget.attrs.update({'class': 'form-control'})
+            
